@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react'
+import React, { useState, useRef } from 'react'
 import ImageContainer from '../components/ImageContainer';
 import ProjectHeaderDetail from './ProjectHeaderDetail';
 
@@ -6,26 +6,26 @@ function Gallery(props) {
 
     const galleryDOM = useRef();
 
-    let dragStartPosition   = 0;
+    let dragStartPosition = 0;
     let galleryDOMStyleLeft = 0;
-    let isDragged           = false;
-    let shouldFire          = true;
-    let containerWidth      = 0;
+    let isDragged = false;
+    let shouldFire = true;
+    let containerWidth = 0;
     let timeout = null;
 
     const startDrag = (evt) => {
         evt.preventDefault();
 
         if (timeout) {
-            return ;
+            return;
         }
 
         galleryDOM.current.classList.remove("transition-all");
 
-        dragStartPosition   = evt.clientX || evt.touches[0].clientX;
-        containerWidth      = document.querySelector(".container").clientWidth;
+        dragStartPosition = evt.touches[0].clientX || evt.clientX;
+        containerWidth = document.querySelector(".container").clientWidth;
         galleryDOMStyleLeft = parseInt(galleryDOM.current.style.left, 10) || 0;
-        isDragged           = true;
+        isDragged = true;
     }
 
     const drag = (evt) => {
@@ -39,65 +39,69 @@ function Gallery(props) {
 
             shouldFire = false;
 
-            let mousePos     = evt.clientX || evt.touches[0].clientX;
+            let mousePos = evt.clientX || evt.touches[0].clientX;
             let dragDistance = dragStartPosition - mousePos;
-            let finalValue   = galleryDOMStyleLeft - dragDistance;
+            let finalValue = galleryDOMStyleLeft - dragDistance;
 
             galleryDOM.current.style.left = `${finalValue}px`;
-            shouldFire                    = true;
+            shouldFire = true;
         })
     }
 
     const stopDrag = (evt) => {
+
         evt.preventDefault();
         //Reseting Conditionals
         galleryDOM.current.classList.add("transition-all")
 
         const galleryLeftPos = parseInt(galleryDOM.current.style.left, 10);
-        const galWidth       = galleryDOM.current.offsetWidth;
+        const galWidth = galleryDOM.current.offsetWidth;
 
         if (galleryLeftPos > 0 || galWidth < containerWidth) {
             galleryDOM.current.style.left = 0;
             timeout = setTimeout(() => {
                 clearTimeout(timeout);
                 timeout = null;
+                galleryDOM.current.classList.remove("transition-all");
             }, 200);
         } else if (galleryLeftPos < -(galWidth - containerWidth)) {
             galleryDOM.current.style.left = -(galWidth - containerWidth) + "px";
             timeout = setTimeout(() => {
                 clearTimeout(timeout);
                 timeout = null;
+                galleryDOM.current.classList.remove("transition-all");
             }, 200);
         }
 
-        isDragged           = false;
-        dragStartPosition   = 0;
+        isDragged = false;
+        dragStartPosition = 0;
         galleryDOMStyleLeft = 0;
     }
 
     return (
 
         <div
-            className     = "Gallery"
-            onMouseDown   = {startDrag}
-            onMouseMove   = {drag}
-            onMouseLeave  = {stopDrag}
-            onMouseUp     = {stopDrag}
-            onTouchStart  = {startDrag}
-            onTouchMove   = {drag}
-            onTouchCancel = {stopDrag}
-            ref           = {galleryDOM}>
+            className="Gallery"
+            onMouseDown={startDrag}
+            onMouseMove={drag}
+            onMouseLeave={stopDrag}
+            onMouseUp={stopDrag}
+            onTouchStart={startDrag}
+            onTouchMove={drag}
+            onTouchCancel={stopDrag}
+            onTouchEnd={stopDrag}
+            ref={galleryDOM}>
 
             {
                 props.title
-                    ? <ProjectHeaderDetail title = {`${props.title}`} value = ""/>
+                    ? <ProjectHeaderDetail title={`${props.title}`} value="" />
                     : null
             }
 
             {props
                 .urls
                 .map((val, idx, arr) => {
-                    return (<ImageContainer key={idx} src={val}/>)
+                    return (<ImageContainer key={idx} src={val} />)
                 })}
 
         </div>
