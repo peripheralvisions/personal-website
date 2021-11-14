@@ -22,7 +22,7 @@ function Gallery(props) {
 
         galleryDOM.current.classList.remove("transition-all");
 
-        dragStartPosition = evt.touches[0].clientX || evt.clientX;
+        dragStartPosition =  evt.clientX || evt.touches[0].clientX;
         containerWidth = document.querySelector(".container").clientWidth;
         galleryDOMStyleLeft = parseInt(galleryDOM.current.style.left, 10) || 0;
         isDragged = true;
