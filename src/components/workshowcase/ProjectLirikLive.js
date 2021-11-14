@@ -5,7 +5,7 @@ import ProjectHeaderDetail from '../ProjectHeaderDetail.js'
 import ImageContainer from '../ImageContainer.js'
 
 import VideoSubscriberAuth from '../../videos/subscription-required.mp4';
-import GifCardHover from '../../videos/cardHover-gif.gif';
+import GifCardHover from '../../videos/cardHover.gif';
 
 function ProjectLirikLive() {
 
