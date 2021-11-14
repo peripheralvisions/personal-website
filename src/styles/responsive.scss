@@ -1,0 +1,206 @@
+// @media only screen and (max-device-width: 480px) {
+
+@media only screen and (max-width: 1300px) {
+
+
+    iframe {
+        height: 50vh;
+        width: 100%;
+    }
+
+
+    .ImageContainer {
+        max-height: 80vh;
+    }
+
+    button {
+        font-size: 36px !important;
+    }
+
+    .container {
+        padding: 0 50px !important;
+    }
+
+    .logo {
+        font-size: 3vw !important;
+        // text-align: left !important;
+        font-weight: 600 !important;
+        mix-blend-mode: difference;
+    }
+
+    .inner-nav,
+    .localization {
+        display: none !important;
+    }
+
+    .TopNavigation {
+        button {
+            font-size: 2vw !important;
+        }
+    }
+
+    .Intro {
+        height: 70vh !important;
+        // padding-top: 200px;
+        .intro-main {
+
+            h1 {
+                top: 50% !important;
+                font-size: 4vw !important;
+                
+            }
+
+            
+            .ImageContainer {
+                width: 100% !important;
+                display: none !important;
+            }
+
+        } 
+
+        .intro-bottom {
+            font-size: 3vw;
+            text-transform: uppercase;
+            :not(:first-child) {
+                display: none;
+            }
+        }
+
+        .intro-bg {
+            // display: none !important;
+            .ImageContainer {
+                width: 100% !important;
+                height: 100% !important;
+            }
+        }
+
+    }
+
+    .TechStack {
+        width: 100% !important;
+    }
+
+    .side {
+        display: none !important;
+    }
+
+    .GroupName {
+        padding: 50px 0 !important;
+    }
+
+    .ProjectDetailValue {
+        font-size: 32px !important;
+        font-size: 4vw !important;
+    }
+
+    .ProjectDetailTitle {
+        font-size: 2vw !important;
+    }
+
+    .Project-gallery {
+
+        .row {
+            flex-direction: column !important;
+            >div:first-child {
+                margin-right: 0 !important;
+            }
+
+            >div:not(:first-child) {
+                margin-top: 120px !important;
+            }
+
+
+            >div {
+                width: 100%;
+            }
+
+            .ImageContainer {
+                width: 100% !important;
+                // height: 500px;
+                flex-basis: auto !important;
+                margin-right: 0 !important;
+            }
+        }
+
+        .row:nth-child(2) {
+            flex-direction: column !important;
+            font-size: 14px !important;
+
+            .Project-comment {
+                width: 100% !important;
+                font-size: 3vw;
+                margin-top: 120px;
+            }
+        }
+
+        .Project-comment {
+            p:not(:first-of-type) {
+                margin-top: 60px;  
+            }
+        }
+
+    }
+
+    .GetInTouch {
+        .row {
+            margin-top: 100px;
+            flex-direction: column !important;
+            > div {
+                flex-basis: auto !important;
+                &:not(:last-child) {
+                    margin-right: 0 !important;
+                }
+            }
+        }
+
+        .footer-right {
+            margin-top: 100px;
+        }
+
+        .contact-quote {
+            // margin: 100px 0;
+            font-size: 2vw;
+        }
+
+        .Dash {
+            margin: 35px 0 !important;
+        }
+
+        .shortcuts {
+
+            span {
+                font-size: 24px !important;
+            }
+            ul {
+                font-size: 31px !important;
+            }
+        }
+    }
+
+    .Gallery {
+        .ImageContainer {
+            // width: 70vw !important;        
+            height: 60vh;
+        }
+    }
+
+    .GetInTouch {
+        .container {
+            .row {
+                .footer-right {
+                    >div {
+                        margin-top: 35px !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .eof {
+        margin-top: 60px !important;
+
+        .Dash {
+            width: 30% !important;
+        }
+    }
+}
