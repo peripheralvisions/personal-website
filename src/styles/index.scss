@@ -8,9 +8,6 @@
 $main-color: #C2C2C2;
 $main-dark: #050505;
 
-// $main-color: #797979;
-// $main-dark: #ffffff;
-
 iframe {
     height: 50vh;
     width: 100%;
@@ -134,7 +131,7 @@ video {
 
 a {
     position: relative;
-    cursor: context-menu;
+    cursor: pointer;
     &::before {
         content: '';
         width: 0;
@@ -145,16 +142,9 @@ a {
         transition: all 0.4s ease-in-out;
     }
 }
-a:not(.unavailable):hover {
-    cursor: pointer;
-    &::before {
-        // height: 5px;
-        bottom: -10px;
-        content: '';
-        transition: all 0.4s ease-in-out;
-        width: 100%;
-    }
-}
+
+
+
 a:active {
     outline: none;
     opacity: 1 !important;
@@ -320,35 +310,27 @@ video {
 
 #app {
     height: 100%;
-    // display: flex;
-    // align-items: stretch;
-    // flex-direction: column;
     width: 100%;
-    // overflow-x: hidden;
 }
 
 .TopNavigation {
     padding-top: 50px;
     position: fixed;
     width: 100%;
-    // background-color: rgba(0,0,0, 1);
-    // background-color: rgba(5, 5, 5, 0.6);
-    // filter: (blur(5px));
     z-index: 999;
 
-    // line-height: 100%;
     nav {
         padding: 20px;
 
         ul {
             display: flex;
             justify-content: space-between;
-            // align-content: center;
             align-items: center;
 
             li {
-                display: inline-block;
-                // opacity: 0.6;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 font-size: 18px;
                 font-weight: 300;
             }
@@ -363,6 +345,16 @@ video {
                 mix-blend-mode: difference;
             }
 
+            li.github {
+                a {
+                    display: flex;
+                    align-items: center;
+                    svg {
+                        margin-right: 8px;
+                    }
+                }
+            }
+
             .underline {
                 opacity: 1 !important;
             }
@@ -370,10 +362,21 @@ video {
             .inner-nav {
                 font-weight: lighter;
                 li {
-                    opacity: 0.6;
                     &:not(:last-child) {
                         margin-right: 2vw;
                     }
+
+                    a:not(.unavailable):hover {
+                        cursor: pointer;
+                        &::before {
+                            // height: 5px;
+                            bottom: -10px;
+                            content: '';
+                            transition: all 0.4s ease-in-out;
+                            width: 100%;
+                        }
+                    }
+
                 }
             }
 
